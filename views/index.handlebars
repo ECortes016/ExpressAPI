@@ -2,8 +2,19 @@
 <p>Welcome to my App</p>
 
 {{!-- Ended video on 3:37 #4 --}}
-{{#if isDisplayedName}}
-    <p>My name is {{ name }}</p>
+{{#if isDisplayName}}
+<p>My name is {{ name }}</p>
+
+{{else}}
+
+<p>No name found!</p>
 {{/if}}
 
+
+{{#if isAgeEnable}}
 <p>I am {{ age }}</p>
+
+{{else}}
+
+<p>No age provided</p>
+{{/if}}
