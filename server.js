@@ -1,6 +1,5 @@
 const express = require('express');
 const fetch = require('node-fetch');
-var api = require('marvel-api');
 
 const app = express();
 const hbs = require('express-handlebars');
@@ -16,6 +15,7 @@ app.set('view engine', 'handlebars');
 // Routing
 app.get("/", (req, res) => {
     // res.render("index", { layout: false });
+
     res.render('index', {
         title: 'Home Page',
         name: 'Emmanuel Cortes',
@@ -27,14 +27,16 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/about", (req, res) => {
+app.get("/characters", (req, res) => {
     // res.render("about", { layout: false });
-    res.render('about', {
-        title: "About",
-        description: 'lorem ipsum lorem ipsum'
-    });
-});
+    const charName = fetch(`https://breakingbadapi.com/api/characters/1`)
+    .then(res => res.json())
+    .then(json => console.log(json));
 
+    res.render('characters', {
+        name: charName.name
+    })
+});
 
 app.get("/dashboard", (req, res) => {
     res.render('dashboard', {
@@ -70,44 +72,5 @@ app.get("/each/helper", (req, res) => {
 
 app.listen(8080);
 
-// Marvel API Stuff
 
-app.get('/marvel', (req, res) => {
-    var names = fetch('http://gateway.marvel.com/v1/public/comics?ts=1&apikey=df7cdc55dad592b8c46b213093e9d349&hash=73fc3e8eb94b68b934f22ccf02998163')
-    .then(res => res.json)
-    .then(
-        (json) => {
-            console.log(json)
-            res.render('marvel', { name: data })
-        }
-    )
-})
-
-
-
-
-// var characters = function getData() {
-//     var marvel = api.createClient({
-//         publicKey: 'df7cdc55dad592b8c46b213093e9d349'
-//       , privateKey: 'd5708e5cf4c6e72db54f31cb40a89c457af5fa8f'
-//       });
-
-//     marvel.characters.findAll()
-//   .then(console.log)
-//   .fail(console.error)
-//   .done();
-//   console.log(marvel.data.results)
-// }
-// console.log(marvel.name);
-
-
-
-
-
-
-
-
-
-// fetch('http://gateway.marvel.com/v1/public/characters?ts=1&apikey=df7cdc55dad592b8c46b213093e9d349&hash=73fc3e8eb94b68b934f22ccf02998163')
-//     .then(res => res.text())
-//     .then(body => console.log(body));
+// API 
