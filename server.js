@@ -12,13 +12,36 @@ app.engine('handlebars', hbs({
     layoutsDir: path.join(__dirname, 'views/layouts')
 }));
 
+
 app.set('view engine', 'handlebars');
 
 // Routing
 app.get("/", (req, res) => {
+    // res.render("about", { layout: false });
+    fetch(`https://breakingbadapi.com/api/characters/`)
+        .then(res => res.json())
+        .then(json => {
+            res.render('index', {
+                title: "Character Index",
+                style: "index.css",
+                walter: json[0].name,
+                walterIMG: json[0].img,
+                jesse: json[1].name,
+                jesseIMG: json[1].img,
+                saul: json[7].name,
+                hank: json[4].name,
+                gus: json[8].name,
+                walterJR: json[3].name
+            })
+        });
+});
+
+
+
+app.get("/characters", (req, res) => {
     // res.render("index", { layout: false });
 
-    res.render('index', {
+    res.render('characters', {
         title: 'Home Page',
         name: 'Emmanuel Cortes',
         age: 17,
@@ -29,30 +52,10 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/characters", (req, res) => {
-    // res.render("about", { layout: false });
-    fetch(`https://breakingbadapi.com/api/characters/`)
-    .then(res => res.json())
-    .then(json => {console.log(json)
-        res.render('characters', {
-            style: "characters.css",
-            walter: json[0].name,
-            walterIMG: json[0].img,
-            jesse: json[1].name,
-            jesseIMG: json[1].img,
-            saul: json[7].name,
-            hank: json[4].name,
-            gus: json[8].name,
-            walterJR: json[3].name
-        })
-    });
 
-    
-});
+app.get("/walter", (req, res) => {
+    res.render('walter', {
 
-app.get("/dashboard", (req, res) => {
-    res.render('dashboard', {
-        isListEnabled: true
     })
 })
 

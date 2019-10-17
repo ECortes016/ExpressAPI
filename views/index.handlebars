@@ -1,20 +1,22 @@
-<h2>Hello World!</h2>
-<p>Welcome to my App</p>
+<h2 id="title"><span class="elements">Br</span>eaking <span class="elements">Ba</span>d Characters</h2>
+<p id="desc">Some of the Breaking Bad characters</p>
 
-{{!-- Ended video on 3:37 #4 --}}
-{{#if isDisplayName}}
-<p>My name is {{ name }}</p>
+<p id="names">{{saul}}, {{hank}}, {{gus}}, {{walterJR}}</p>
 
-{{else}}
+<div class="first-row">
 
-<p>No name found!</p>
-{{/if}}
+    <div class="containers" class="stars">
+        <div class="image"><a href="walter"><img src="{{walterIMG}}" alt="" class="portrait"></a></div>
+        <div class="information">
+            <h2>{{walter}}</h2>
+        </div>
+    </div>
 
+    <div class="containers" class="stars">
+        <div class="image"><img src="{{jesseIMG}}" alt="" class="portrait"></div>
+        <div class="information">
+            <h2>{{jesse}}</h2>
+        </div>
+    </div>
 
-{{#if isAgeEnable}}
-<p>I am {{ age }}</p>
-
-{{else}}
-
-<p>No age provided</p>
-{{/if}}
+</div>

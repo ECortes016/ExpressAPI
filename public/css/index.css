@@ -1,9 +1,13 @@
 #title {
-    color: #487F5A;
+    color: black;
     font-size: 36pt;
     text-align: center;
     width: 100%;
     margin-bottom: 0;
+}
+
+.elements {
+    color: #487F5A;
 }
 
 #desc {
@@ -12,8 +16,9 @@
     width: 100%;
 }
 
-.wj {
-    width: 100%;
+.first-row {
+    width: 90%;
+    margin: 0 auto;
 }
 
 .stars {
