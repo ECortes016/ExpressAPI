@@ -5,6 +5,8 @@ const app = express();
 const hbs = require('express-handlebars');
 const path = require('path');
 
+app.use(express.static('public'));
+
 app.engine('handlebars', hbs({
     defaultLayout: 'main',
     layoutsDir: path.join(__dirname, 'views/layouts')
@@ -29,13 +31,23 @@ app.get("/", (req, res) => {
 
 app.get("/characters", (req, res) => {
     // res.render("about", { layout: false });
-    const charName = fetch(`https://breakingbadapi.com/api/characters/1`)
+    fetch(`https://breakingbadapi.com/api/characters/`)
     .then(res => res.json())
-    .then(json => console.log(json));
+    .then(json => {console.log(json)
+        res.render('characters', {
+            style: "characters.css",
+            walter: json[0].name,
+            walterIMG: json[0].img,
+            jesse: json[1].name,
+            jesseIMG: json[1].img,
+            saul: json[7].name,
+            hank: json[4].name,
+            gus: json[8].name,
+            walterJR: json[3].name
+        })
+    });
 
-    res.render('characters', {
-        name: charName.name
-    })
+    
 });
 
 app.get("/dashboard", (req, res) => {

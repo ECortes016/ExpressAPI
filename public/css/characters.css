@@ -1,0 +1,30 @@
+#title {
+    color: #487F5A;
+    font-size: 36pt;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+#desc {
+    font-size: 22pt;
+    text-align: center;
+    width: 100%;
+}
+
+.wj {
+    width: 100%;
+}
+
+.stars {
+    margin: 0 auto;
+}
+
+.containers {
+    width: 40%;
+    float: left;
+}
+
+.portrait {
+    width: 40%;
+}
