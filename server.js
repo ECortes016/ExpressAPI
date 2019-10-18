@@ -29,19 +29,23 @@ app.get("/", (req, res) => {
                 jesse: json[1].name,
                 jesseIMG: json[1].img,
                 saul: json[7].name,
+                saulIMG: json[7].img,
                 hank: json[4].name,
+                hankIMG: json[4].img,
                 gus: json[8].name,
-                walterJR: json[3].name
+                gusIMG: json[8].img,
+                walterJR: json[3].name,
+                walterJRIMG: json[3].IMG
             })
         });
 });
 
 
 
-app.get("/characters", (req, res) => {
+app.get("/jesse", (req, res) => {
     // res.render("index", { layout: false });
 
-    res.render('characters', {
+    res.render('jesse', {
         title: 'Home Page',
         name: 'Emmanuel Cortes',
         age: 17,

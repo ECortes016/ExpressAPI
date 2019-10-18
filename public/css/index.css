@@ -17,19 +17,27 @@
 }
 
 .first-row {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
 }
 
-.stars {
-    margin: 0 auto;
-}
-
-.containers {
-    width: 40%;
+.top-containers {
+    width: 50%;
     float: left;
 }
 
-.portrait {
-    width: 40%;
+.top-row {
+    height: 350px;
 }
+
+.bottom-rows {
+    height: 350px;
+}
+
+.portrait {
+    position: relative;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
