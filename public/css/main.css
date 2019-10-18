@@ -1,3 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Cabin', sans-serif;
+}
+
+h2 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
 html {
     height: 100%;
 }

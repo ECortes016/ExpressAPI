@@ -6,50 +6,51 @@
     margin-bottom: 0;
 }
 
-.elements {
+span.elements {
     color: #487F5A;
 }
 
-#desc {
-    font-size: 22pt;
+img.img-height {
+    display: block;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.image-container {
+    margin: 0 auto;
+}
+
+h2.names {
+    padding: 10px 0;
     text-align: center;
+}
+
+div.first-row {
     width: 100%;
+
+    display: grid;
+    grid-template-columns: 2fr 2fr;
 }
 
-.first-row {
+.top-item {
     width: 50%;
-    margin: 0 auto;
     display: block;
+    margin: 0 auto;
 }
 
-.second-row {
-    display: block;
+div.second-row {
     width: 100%;
-    margin: 0 auto;
+    padding-top: 30px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.container {
-    width: 25%;
-    float: left;
-}
-
-.top-containers {
-    width: 50%;
-    float: left;
-}
-
-.top-row {
-    height: 350px;
-}
-
-.bottom-rows {
-    height: 350px;
-}
-
+/* 
 .portrait {
     position: relative;
     background-position: 50% 50%;
-    background-repeat:   no-repeat;
-    background-size:     cover;
-}
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
 

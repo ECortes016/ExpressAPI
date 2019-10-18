@@ -7,13 +7,14 @@ const path = require('path');
 
 app.use(express.static('public'));
 
-app.engine('handlebars', hbs({
+app.engine('.hbs', hbs({
     defaultLayout: 'main',
-    layoutsDir: path.join(__dirname, 'views/layouts')
+    layoutsDir: path.join(__dirname, 'views/layouts'),
+    extname: '.hbs'
 }));
 
 
-app.set('view engine', 'handlebars');
+app.set('view engine', '.hbs');
 
 // Routing
 app.get("/", (req, res) => {
@@ -34,13 +35,25 @@ app.get("/", (req, res) => {
                 hankIMG: json[4].img,
                 gus: json[8].name,
                 gusIMG: json[8].img,
-                walterjr: json[3].name,
-                walterjrIMG: json[3].img
+                skyler: json[2].name,
+                skylerIMG: json[2].img
             })
         });
 });
 
-
+app.get("/walter", (req, res) => {
+    fetch(`https://breakingbadapi.com/api/characters/`)
+        .then(res => res.json())
+        .then(json => {
+            res.render('walter', {
+                title: "Character Index",
+                layout: 'info',
+                style: "character.css",
+                character: json[0].name,
+                img: json[0].img
+            })
+        });
+})
 
 app.get("/jesse", (req, res) => {
     // res.render("index", { layout: false });
@@ -57,11 +70,7 @@ app.get("/jesse", (req, res) => {
 
 
 
-app.get("/walter", (req, res) => {
-    res.render('walter', {
 
-    })
-})
 
 
 app.get("/each/helper", (req, res) => {
