@@ -34,8 +34,8 @@ app.get("/", (req, res) => {
                 hankIMG: json[4].img,
                 gus: json[8].name,
                 gusIMG: json[8].img,
-                walterJR: json[3].name,
-                walterJRIMG: json[3].IMG
+                walterjr: json[3].name,
+                walterjrIMG: json[3].img
             })
         });
 });
