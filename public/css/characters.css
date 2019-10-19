@@ -1,0 +1,18 @@
+img {
+    height: 500px;
+}
+
+p.return {
+    display: block;
+    text-align: center;
+    padding: 15px 0;
+}
+
+a.home {
+    color: #487F5A;
+    text-decoration: none;
+}
+
+a.home:hover {
+    color: black;
+}

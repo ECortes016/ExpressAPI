@@ -9,12 +9,14 @@ app.use(express.static('public'));
 
 app.engine('.hbs', hbs({
     defaultLayout: 'main',
-    layoutsDir: path.join(__dirname, 'views/layouts'),
+    elayoutsDir: path.join(__dirname, 'views/layouts'),
     extname: '.hbs'
 }));
 
 
 app.set('view engine', '.hbs');
+
+
 
 // Routing
 app.get("/", (req, res) => {
@@ -46,59 +48,107 @@ app.get("/walter", (req, res) => {
         .then(res => res.json())
         .then(json => {
             res.render('walter', {
-                title: "Character Index",
+                title: "Walter White",
                 layout: 'info',
                 style: "character.css",
                 character: json[0].name,
-                img: json[0].img
+                img: json[0].img,
+                nickname: json[0].nickname,
+                occupation: json[0].occupation[1],
+                status: json[0].status,
+                actor: json[0].portrayed
             })
         });
 })
 
 app.get("/jesse", (req, res) => {
-    // res.render("index", { layout: false });
+    fetch(`https://breakingbadapi.com/api/characters/`)
+        .then(res => res.json())
+        .then(json => {
+            res.render('jesse', {
+                title: "Jesse Pinkman",
+                layout: 'info',
+                style: "character.css",
+                character: json[1].name,
+                img: json[1].img,
+                nickname: json[1].nickname,
+                occupation: json[1].occupation[0],
+                status: json[1].status,
+                actor: json[1].portrayed
+            })
+        });
+})
 
-    res.render('jesse', {
-        title: 'Home Page',
-        name: 'Emmanuel Cortes',
-        age: 17,
-        isDisplayName: true,
-        isAgeEnable: true
-    });
+app.get("/saul", (req, res) => {
+    fetch(`https://breakingbadapi.com/api/characters/`)
+        .then(res => res.json())
+        .then(json => {
+            res.render('saul', {
+                title: "Saul Goodman",
+                layout: 'info',
+                style: "character.css",
+                character: json[7].name,
+                img: json[7].img,
+                nickname: json[7].nickname,
+                occupation: json[7].occupation[0],
+                status: json[7].status,
+                actor: json[7].portrayed
+            })
+        });
+})
 
-});
+app.get("/henry", (req, res) => {
+    fetch(`https://breakingbadapi.com/api/characters/`)
+        .then(res => res.json())
+        .then(json => {
+            res.render('henry', {
+                title: "Henry Schrader",
+                layout: 'info',
+                style: "character.css",
+                character: json[4].name,
+                img: json[4].img,
+                nickname: json[4].nickname,
+                occupation: json[4].occupation[0],
+                status: json[4].status,
+                actor: json[4].portrayed
+            })
+        });
+})
 
+app.get("/skyler", (req, res) => {
+    fetch(`https://breakingbadapi.com/api/characters/`)
+        .then(res => res.json())
+        .then(json => {
+            res.render('skyler', {
+                title: "Skyler White",
+                layout: 'info',
+                style: "character.css",
+                character: json[2].name,
+                img: json[2].img,
+                nickname: json[2].nickname,
+                occupation: json[2].occupation[0],
+                status: json[2].status,
+                actor: json[2].portrayed
+            })
+        });
+})
 
-
-
-
-
-app.get("/each/helper", (req, res) => {
-    res.render('contact', {
-        people: [
-            "James",
-            "Peter",
-            "Samantha",
-            "Marissa"
-        ],
-        user: {
-            username: 'Shroud',
-            age: 25,
-            phone: 1234567
-        },
-        lists: [
-            {
-                items: ['Mango', 'Banana', 'Pineapple']
-            },
-
-            {
-                items: ['Potato', 'Manioc', 'Avocado']
-            }
-        ]
-    });
+app.get("/gus", (req, res) => {
+    fetch(`https://breakingbadapi.com/api/characters/`)
+        .then(res => res.json())
+        .then(json => {
+            res.render('gus', {
+                title: "Gustavo Fring",
+                layout: 'info',
+                style: "character.css",
+                character: json[8].name,
+                img: json[8].img,
+                nickname: json[8].nickname,
+                occupation: json[8].occupation[0],
+                status: json[8].status,
+                actor: json[8].portrayed
+            })
+        });
 })
 
 app.listen(8080);
-
-
-// API 
