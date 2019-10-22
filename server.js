@@ -13,6 +13,7 @@ app.engine('.hbs', hbs({
     extname: '.hbs'
 }));
 
+
 app.set('view engine', '.hbs');
 
 // Routing
