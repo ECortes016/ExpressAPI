@@ -9,14 +9,11 @@ app.use(express.static('public'));
 
 app.engine('.hbs', hbs({
     defaultLayout: 'main',
-    elayoutsDir: path.join(__dirname, 'views/layouts'),
+    layoutsDir: path.join(__dirname, 'views/layouts'),
     extname: '.hbs'
 }));
 
-
 app.set('view engine', '.hbs');
-
-
 
 // Routing
 app.get("/", (req, res) => {
@@ -25,7 +22,7 @@ app.get("/", (req, res) => {
         .then(res => res.json())
         .then(json => {
             res.render('index', {
-                title: "Character Index",
+                title: "Home",
                 style: "index.css",
                 walter: json[0].name,
                 walterIMG: json[0].img,

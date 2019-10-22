@@ -2,6 +2,37 @@ img {
     height: 500px;
 }
 
+#name {
+    font-size: 36pt;
+}
+
+#nickname {
+    font-size: 26pt;
+}
+
+#occupation {
+    font-size: 20pt;
+}
+
+#status, #actor {
+    font-size: 14pt;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 p.return {
     display: block;
     text-align: center;
